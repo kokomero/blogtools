@@ -1,0 +1,2 @@
+composite -alpha on -gravity SouthEast /home/victor/tmp/url_blog.tiff /home/victor/tmp/2013-12-07-Aizkorri/DSC00012.JPG test.jpg
+
