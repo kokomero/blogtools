@@ -1,2 +1,27 @@
-composite -alpha on -gravity SouthEast /home/victor/tmp/url_blog.tiff /home/victor/tmp/2013-12-07-Aizkorri/DSC00012.JPG test.jpg
+
+#!/bin/bash
+
+#Add a signature image to the pictures passed as arguments.
+#Requier imagemagick package for composite
+
+if [ "$1" == "-h" ]; then
+  echo "Usage: `basename $0` [files]: Add a signature image to the pictures passed as argument."
+  exit 0
+fi
+
+SIGNATURE="./url_blog.tiff"
+
+for file in "$@"
+do
+    filename=$(basename "$file")
+    extension="${filename#*.}"
+    name="${filename%.*}"
+    name_signed=$name$"_signed."$extension
+    echo $file
+    composite -alpha on -gravity SouthEast $SIGNATURE $file $name_signed
+done
+
+
+
+
 
